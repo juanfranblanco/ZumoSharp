@@ -45,12 +45,43 @@ angular.module("ZumoDemo")
 
 ```
 ##### Zumo.Sharp.Demo.Web / static / js / services / mobileServiceClient.js 
+We have 2 mobile services clients (for demo purposes) one pointing to Azure and the other to the web api
+
 ```
-angular.module("ZumoDemo").factory("mobileServiceClient", [function () { 
-     var MobileServiceClient = WindowsAzure.MobileServiceClient; 
-     var client = new MobileServiceClient('/', 'YourWAMSApplicationKey'); 
-     return client; 
- }]); 
+angular.module("ZumoDemo").factory("mobileServiceClient", [function () {
+    var MobileServiceClient = WindowsAzure.MobileServiceClient;
+    var client = new WindowsAzure.MobileServiceClient(
+    "https://musicaplaylist.azure-mobile.net/",
+    "YourWAMSAPIKEY"
+);
+    return client;
+}]);
+
+angular.module("ZumoDemo").factory("mobileServiceClientWebApi", [function () {
+	var MobileServiceClient = WindowsAzure.MobileServiceClient;
+	var client = new WindowsAzure.MobileServiceClient(
+    "/",
+    "YourWAMSAPIKEY"
+);
+	return client;
+}]);
+```
+### WAMS Api
+Create an Api call in Azure Mobile Services call "demo" so we can and use this as get:
+```
+exports.get = function(request, response) {
+    response.send(statusCodes.OK, [
+	{
+		CustomerId: "1",
+		Name: "Azure Mobile Services connection"
+	},
+    {
+		CustomerId: "2",
+		Name: "Azure Mobile Services connection"
+	}
+    ]
+);
+};
 ```
 ### Quick overview
 ##### Zumo.Sharp.Demo.Web / Controllers / ZumoSharpDemoLoginController.cs 
@@ -67,5 +98,3 @@ Demo controller has the attribute **Zumo.Sharp.AspNet.ZumoAuthorisationFilter** 
 * Logging
 * User roles
 * Other providers
-
-
