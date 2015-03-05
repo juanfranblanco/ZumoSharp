@@ -21,9 +21,7 @@ namespace Zumo.Sharp.AspNet.Controllers
                 var token = requestData["access_token"].Value<string>();
                 var facebookAuhenticator = new FacebookAuthentication(Authentication.Configuration.GetFacebookAppId(), Authentication.Configuration.GetFacebookSecret());
                 var credentials = await facebookAuhenticator.GetCredentialsFromAccessTokenAsync(token);
-                var jsonWebtoken = ZumoJsonWebTokenBuilder.CreateJsonWebToken(GetExpirationInMinutes(), "Facebook",
-                    credentials);
-
+                var jsonWebtoken = ZumoJsonWebTokenBuilder.CreateJsonWebToken(GetExpirationInMinutes(), ZumoAudience.Facebook, credentials);
                 return new { user = new { userId = jsonWebtoken.Claims.UserId }, authenticationToken = jsonWebtoken.GetToken() };
 
             }
