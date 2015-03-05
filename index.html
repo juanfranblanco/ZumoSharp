@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Zumosharp : Azure Mobile services in .Net">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Zumosharp</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/juanfranblanco/ZumoSharp">View on GitHub</a>
+
+          <h1 id="project_title">Zumosharp</h1>
+          <h2 id="project_tagline">Azure Mobile services in .Net</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/juanfranblanco/ZumoSharp/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/juanfranblanco/ZumoSharp/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="zumosharp" class="anchor" href="#zumosharp" aria-hidden="true"><span class="octicon octicon-link"></span></a>ZumoSharp</h1>
+
+<p>You love Windows Azure Mobile Services but you wish:</p>
+
+<ul>
+<li>You could integrate your current web site with the Javascript, .Net, IOS and Android Azure Mobile Service Client and also integrate with Azure Mobile Services through the same authentication mechanism.</li>
+<li>Future proof the integration with WAMS server for your new website and / or mobile application by leveraging the client and authentication.</li>
+</ul>
+
+<p><img src="https://github.com/juanfranblanco/ZumoSharp/blob/master/Zumo.Sharp.Demo.Web/ZumoSharpDemo.png" alt="Demo Example"></p>
+
+<h3>
+<a id="what-it-does" class="anchor" href="#what-it-does" aria-hidden="true"><span class="octicon octicon-link"></span></a>What it does</h3>
+
+<p>Implementation of JWT (Json web token) and Authentication of Azure Mobile Services in .Net. Currently facebook is the only authentication provider implemented.</p>
+
+<h3>
+<a id="what-it-will-do" class="anchor" href="#what-it-will-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>What it will do</h3>
+
+<p>Implement other authentication providers, serious refactoring, migration to Asp.Net vNext .net Core</p>
+
+<h3>
+<a id="what-it-wont-do" class="anchor" href="#what-it-wont-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>What it won't do</h3>
+
+<p>Replace Azure  Mobile Services general capabilities for push notifications, api generation</p>
+
+<h2>
+<a id="warning" class="anchor" href="#warning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Warning</h2>
+
+<p>Please ensure you use HTTPS when exchanging tokens </p>
+
+<h4>
+<a id="azure-mobile-services" class="anchor" href="#azure-mobile-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Azure mobile services</h4>
+
+<ul>
+<li>Source: <a href="https://github.com/Azure/azure-mobile-services">https://github.com/Azure/azure-mobile-services</a>
+</li>
+<li>Documentation: <a href="http://azure.microsoft.com/en-us/documentation/services/mobile-services/">http://azure.microsoft.com/en-us/documentation/services/mobile-services/</a>
+</li>
+</ul>
+
+<h3>
+<a id="quick-instructions-setup-of-the-demo-project" class="anchor" href="#quick-instructions-setup-of-the-demo-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick instructions setup of the demo project</h3>
+
+<p>In Zumo.Sharp.Demo  change the following configurations:</p>
+
+<h4>
+<a id="webconfig--server" class="anchor" href="#webconfig--server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web.Config / Server</h4>
+
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ApplicationMasterKey</td>
+<td align="center">This is your Azure Mobile Services Master Key</td>
+</tr>
+<tr>
+<td>ApplicationKey</td>
+<td align="center">This is your application key, used as well in the client</td>
+</tr>
+<tr>
+<td>FacebookAppId</td>
+<td align="center">Facebook app id, only used if you are authenticating here instead of WAMS</td>
+</tr>
+<tr>
+<td>FacebookSecret</td>
+<td align="center">Facebook secret, only used if you are authenticating here instead of WAMS</td>
+</tr>
+<tr>
+<td>JWTExpiryInMinutes</td>
+<td align="center">When do you want the token to expire,  only used if you are authenticating here instead of WAMS</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="client--angularjs" class="anchor" href="#client--angularjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client / Angularjs</h4>
+
+<h5>
+<a id="zumosharpdemoweb--static--js--initjs" class="anchor" href="#zumosharpdemoweb--static--js--initjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zumo.Sharp.Demo.Web / static / js / init.js</h5>
+
+<pre><code>angular.module("ZumoDemo") 
+     .config(function ($FBProvider) { 
+          $FBProvider.setInitParams({ 
+              appId: 'YourFacebookAppId' 
+        }); 
+    });  
+
+</code></pre>
+
+<h5>
+<a id="zumosharpdemoweb--static--js--services--mobileserviceclientjs" class="anchor" href="#zumosharpdemoweb--static--js--services--mobileserviceclientjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zumo.Sharp.Demo.Web / static / js / services / mobileServiceClient.js</h5>
+
+<p>We have 2 mobile services clients (for demo purposes) one pointing to Azure and the other to the web api</p>
+
+<pre><code>angular.module("ZumoDemo").factory("mobileServiceClient", [function () {
+    var MobileServiceClient = WindowsAzure.MobileServiceClient;
+    var client = new WindowsAzure.MobileServiceClient(
+    "https://yourazuremobileservice.azure-mobile.net/",
+    "YourWAMSAPIKEY"
+);
+    return client;
+}]);
+
+angular.module("ZumoDemo").factory("mobileServiceClientWebApi", [function () {
+    var MobileServiceClient = WindowsAzure.MobileServiceClient;
+    var client = new WindowsAzure.MobileServiceClient(
+    "/",
+    "YourWAMSAPIKEY"
+);
+    return client;
+}]);
+</code></pre>
+
+<h3>
+<a id="wams-api" class="anchor" href="#wams-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>WAMS Api</h3>
+
+<p>Create an Api call in Azure Mobile Services call "demo" so we can and use this as get:</p>
+
+<pre><code>exports.get = function(request, response) {
+    response.send(statusCodes.OK, [
+    {
+        CustomerId: "1",
+        Name: "Azure Mobile Services connection"
+    },
+    {
+        CustomerId: "2",
+        Name: "Azure Mobile Services connection"
+    }
+    ]
+);
+};
+</code></pre>
+
+<h3>
+<a id="quick-overview" class="anchor" href="#quick-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick overview</h3>
+
+<h5>
+<a id="zumosharpdemoweb--controllers--zumosharpdemologincontrollercs" class="anchor" href="#zumosharpdemoweb--controllers--zumosharpdemologincontrollercs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zumo.Sharp.Demo.Web / Controllers / ZumoSharpDemoLoginController.cs</h5>
+
+<p>To support Facebook authentication it inherits from the generic LoginController implemented in ZumoSharp / Zumo.Sharp.AspNet / Controllers / LoginController.cs to support facebook authentication.</p>
+
+<h5>
+<a id="zumosharpdemoweb--controllers--democontrollercs" class="anchor" href="#zumosharpdemoweb--controllers--democontrollercs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zumo.Sharp.Demo.Web / Controllers / DemoController.cs</h5>
+
+<p>Demo controller has the attribute <strong>Zumo.Sharp.AspNet.ZumoAuthorisationFilter</strong> to enable Zumo authorisation checks.</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Refactoring</li>
+<li>Unit testing </li>
+<li>IoC</li>
+<li>Logging</li>
+<li>User roles</li>
+<li>Other providers</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Zumosharp maintained by <a href="https://github.com/juanfranblanco">juanfranblanco</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
