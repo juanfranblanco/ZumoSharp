@@ -1,0 +1,15 @@
+<table class="table table-bordered table-striped">
+		<caption>Customers</caption>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Customer Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="customer in customers" >
+				<td>{{customer.CustomerId}}</td>
+				<td>{{customer.Name}} </td>
+			</tr>
+		</tbody>
+</table>

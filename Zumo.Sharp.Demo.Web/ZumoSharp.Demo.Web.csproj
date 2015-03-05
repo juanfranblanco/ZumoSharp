@@ -1,0 +1,783 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9815E719-2D1B-4B50-A717-FF541D5517E2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicaPlaylist.Web</RootNamespace>
+    <AssemblyName>MusicaPlaylist.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.0.0\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="static\fonts\" />
+    <Folder Include="static\img\" />
+    <Folder Include="static\libs\angular-ui-router\site\js\" />
+    <Folder Include="static\libs\angular-ui-router\src\" />
+    <Folder Include="static\libs\json3\vendor\marked\" />
+    <Folder Include="static\libs\json3\vendor\spec\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ZumoSharpDemoLoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="static\404.html" />
+    <Content Include="static\client\MobileServices.Web-1.0.0.js" />
+    <Content Include="static\client\MobileServices.Web-1.0.0.min.js" />
+    <Content Include="static\js\appang.js" />
+    <Content Include="static\js\controllers\demo.js" />
+    <Content Include="static\js\controllers\main.js" />
+    <Content Include="static\js\init.js" />
+    <Content Include="static\js\services\facebookLoginService.js" />
+    <Content Include="static\js\services\mobileServiceClient.js" />
+    <Content Include="static\js\services\userService.js" />
+    <Content Include="static\libs\angular-animate\.bower.json" />
+    <Content Include="static\libs\angular-animate\angular-animate.js" />
+    <Content Include="static\libs\angular-animate\angular-animate.min.js" />
+    <Content Include="static\libs\angular-animate\angular-animate.min.js.map" />
+    <Content Include="static\libs\angular-animate\bower.json" />
+    <Content Include="static\libs\angular-cookies\.bower.json" />
+    <Content Include="static\libs\angular-cookies\angular-cookies.js" />
+    <Content Include="static\libs\angular-cookies\angular-cookies.min.js" />
+    <Content Include="static\libs\angular-cookies\angular-cookies.min.js.map" />
+    <Content Include="static\libs\angular-cookies\bower.json" />
+    <Content Include="static\libs\angular-cookies\README.md" />
+    <Content Include="static\libs\angular-easyfb\.bower.json" />
+    <Content Include="static\libs\angular-easyfb\angular-easyfb.js" />
+    <Content Include="static\libs\angular-easyfb\angular-easyfb.min.js" />
+    <Content Include="static\libs\angular-easyfb\bower.json" />
+    <Content Include="static\libs\angular-easyfb\LICENSE" />
+    <Content Include="static\libs\angular-easyfb\README.md" />
+    <Content Include="static\libs\angular-loader\.bower.json" />
+    <Content Include="static\libs\angular-loader\angular-loader.js" />
+    <Content Include="static\libs\angular-loader\angular-loader.min.js" />
+    <Content Include="static\libs\angular-loader\angular-loader.min.js.map" />
+    <Content Include="static\libs\angular-loader\bower.json" />
+    <Content Include="static\libs\angular-loader\README.md" />
+    <Content Include="static\libs\angular-mocks\.bower.json" />
+    <Content Include="static\libs\angular-mocks\angular-mocks.js" />
+    <Content Include="static\libs\angular-mocks\bower.json" />
+    <Content Include="static\libs\angular-mocks\README.md" />
+    <Content Include="static\libs\angular-resource\.bower.json" />
+    <Content Include="static\libs\angular-resource\angular-resource.js" />
+    <Content Include="static\libs\angular-resource\angular-resource.min.js" />
+    <Content Include="static\libs\angular-resource\angular-resource.min.js.map" />
+    <Content Include="static\libs\angular-resource\bower.json" />
+    <Content Include="static\libs\angular-resource\README.md" />
+    <Content Include="static\libs\angular-route\.bower.json" />
+    <Content Include="static\libs\angular-route\angular-route.js" />
+    <Content Include="static\libs\angular-route\angular-route.min.js" />
+    <Content Include="static\libs\angular-route\angular-route.min.js.map" />
+    <Content Include="static\libs\angular-route\bower.json" />
+    <Content Include="static\libs\angular-sanitize\.bower.json" />
+    <Content Include="static\libs\angular-sanitize\angular-sanitize.js" />
+    <Content Include="static\libs\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="static\libs\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="static\libs\angular-sanitize\bower.json" />
+    <Content Include="static\libs\angular-sanitize\README.md" />
+    <Content Include="static\libs\angular-scenario\.bower.json" />
+    <Content Include="static\libs\angular-scenario\angular-scenario.js" />
+    <Content Include="static\libs\angular-scenario\bower.json" />
+    <Content Include="static\libs\angular-scenario\jstd-scenario-adapter-config.js" />
+    <Content Include="static\libs\angular-scenario\jstd-scenario-adapter.js" />
+    <Content Include="static\libs\angular-scenario\README.md" />
+    <Content Include="static\libs\angular-touch\.bower.json" />
+    <Content Include="static\libs\angular-touch\angular-touch.js" />
+    <Content Include="static\libs\angular-touch\angular-touch.min.js" />
+    <Content Include="static\libs\angular-touch\angular-touch.min.js.map" />
+    <Content Include="static\libs\angular-touch\bower.json" />
+    <Content Include="static\libs\angular-ui-router\.bower.json" />
+    <Content Include="static\libs\angular-ui-router\bower.json" />
+    <Content Include="static\libs\angular-ui-router\LICENSE" />
+    <Content Include="static\libs\angular-ui-router\README.md" />
+    <Content Include="static\libs\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="static\libs\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="static\libs\angular-ui-router\site\css\animations.css" />
+    <Content Include="static\libs\angular-ui-router\site\css\bootstrap.min.css" />
+    <Content Include="static\libs\angular-ui-router\site\css\docs.css" />
+    <Content Include="static\libs\angular-ui-router\site\css\doc_widgets.css" />
+    <Content Include="static\libs\angular-ui-router\site\css\font-awesome.css" />
+    <Content Include="static\libs\angular-ui-router\site\favicon.ico" />
+    <Content Include="static\libs\angular-ui-router\site\font\fontawesome-webfont.svg" />
+    <Content Include="static\libs\angular-ui-router\site\index.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.compat.%24route.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.compat.%24routeProvider.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.compat.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.router.%24urlRouter.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.router.%24urlRouterProvider.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.router.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.%24state.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.%24stateProvider.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.%24uiViewScroll.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.%24view.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.directive.ui-sref-active.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.directive.ui-sref.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.diretive.ui-view.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.filter.includeByState.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.state.filter.isState.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.util.%24resolve.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.util.%24templateFactory.html" />
+    <Content Include="static\libs\angular-ui-router\site\partials\api\ui.router.util.html" />
+    <Content Include="static\libs\angular\.bower.json" />
+    <Content Include="static\libs\angular\angular-csp.css" />
+    <Content Include="static\libs\angular\angular.js" />
+    <Content Include="static\libs\angular\angular.min.js" />
+    <Content Include="static\libs\angular\angular.min.js.map" />
+    <Content Include="static\libs\angular\bower.json" />
+    <Content Include="static\libs\bootstrap\.bower.json" />
+    <Content Include="static\libs\bootstrap\assets\css\docs.css" />
+    <Content Include="static\libs\bootstrap\assets\css\pygments-manni.css" />
+    <Content Include="static\libs\bootstrap\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="static\libs\bootstrap\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="static\libs\bootstrap\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="static\libs\bootstrap\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="static\libs\bootstrap\assets\ico\favicon.png" />
+    <Content Include="static\libs\bootstrap\assets\js\application.js" />
+    <Content Include="static\libs\bootstrap\assets\js\customizer.js" />
+    <Content Include="static\libs\bootstrap\assets\js\filesaver.js" />
+    <Content Include="static\libs\bootstrap\assets\js\holder.js" />
+    <Content Include="static\libs\bootstrap\assets\js\html5shiv.js" />
+    <Content Include="static\libs\bootstrap\assets\js\jquery.js" />
+    <Content Include="static\libs\bootstrap\assets\js\jszip.js" />
+    <Content Include="static\libs\bootstrap\assets\js\less.js" />
+    <Content Include="static\libs\bootstrap\assets\js\raw-files.js" />
+    <Content Include="static\libs\bootstrap\assets\js\respond.min.js" />
+    <Content Include="static\libs\bootstrap\assets\js\uglify.js" />
+    <Content Include="static\libs\bootstrap\bower.json" />
+    <Content Include="static\libs\bootstrap\browserstack.json" />
+    <Content Include="static\libs\bootstrap\CNAME" />
+    <Content Include="static\libs\bootstrap\components.html" />
+    <Content Include="static\libs\bootstrap\composer.json" />
+    <Content Include="static\libs\bootstrap\CONTRIBUTING.md" />
+    <Content Include="static\libs\bootstrap\css.html" />
+    <Content Include="static\libs\bootstrap\customize.html" />
+    <Content Include="static\libs\bootstrap\dist\css\845952b7-bbd9-4248-94b6-47f7ffe601f5_9-16-2013_10-14-2013.csv" />
+    <Content Include="static\libs\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="static\libs\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="static\libs\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="static\libs\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="static\libs\bootstrap\dist\css\bootstrap_old.css" />
+    <Content Include="static\libs\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\libs\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\libs\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\libs\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\libs\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="static\libs\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="static\libs\bootstrap\examples\carousel\carousel.css" />
+    <Content Include="static\libs\bootstrap\examples\carousel\index.html" />
+    <Content Include="static\libs\bootstrap\examples\grid\grid.css" />
+    <Content Include="static\libs\bootstrap\examples\grid\index.html" />
+    <Content Include="static\libs\bootstrap\examples\jumbotron-narrow\index.html" />
+    <Content Include="static\libs\bootstrap\examples\jumbotron-narrow\jumbotron-narrow.css" />
+    <Content Include="static\libs\bootstrap\examples\jumbotron\index.html" />
+    <Content Include="static\libs\bootstrap\examples\jumbotron\jumbotron.css" />
+    <Content Include="static\libs\bootstrap\examples\justified-nav\index.html" />
+    <Content Include="static\libs\bootstrap\examples\justified-nav\justified-nav.css" />
+    <Content Include="static\libs\bootstrap\examples\navbar-fixed-top\index.html" />
+    <Content Include="static\libs\bootstrap\examples\navbar-fixed-top\navbar-fixed-top.css" />
+    <Content Include="static\libs\bootstrap\examples\navbar-static-top\index.html" />
+    <Content Include="static\libs\bootstrap\examples\navbar-static-top\navbar-static-top.css" />
+    <Content Include="static\libs\bootstrap\examples\navbar\index.html" />
+    <Content Include="static\libs\bootstrap\examples\navbar\navbar.css" />
+    <Content Include="static\libs\bootstrap\examples\non-responsive\index.html" />
+    <Content Include="static\libs\bootstrap\examples\non-responsive\non-responsive.css" />
+    <Content Include="static\libs\bootstrap\examples\offcanvas\index.html" />
+    <Content Include="static\libs\bootstrap\examples\offcanvas\offcanvas.css" />
+    <Content Include="static\libs\bootstrap\examples\offcanvas\offcanvas.js" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\carousel.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\grid.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\jumbotron-narrow.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\jumbotron.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\justified-nav.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\navbar-fixed.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\navbar-static.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\navbar.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\non-responsive.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\offcanvas.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\sign-in.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\starter-template.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\sticky-footer-navbar.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\sticky-footer.jpg" />
+    <Content Include="static\libs\bootstrap\examples\screenshots\theme.jpg" />
+    <Content Include="static\libs\bootstrap\examples\signin\index.html" />
+    <Content Include="static\libs\bootstrap\examples\signin\signin.css" />
+    <Content Include="static\libs\bootstrap\examples\starter-template\index.html" />
+    <Content Include="static\libs\bootstrap\examples\starter-template\starter-template.css" />
+    <Content Include="static\libs\bootstrap\examples\sticky-footer-navbar\index.html" />
+    <Content Include="static\libs\bootstrap\examples\sticky-footer-navbar\sticky-footer-navbar.css" />
+    <Content Include="static\libs\bootstrap\examples\sticky-footer\index.html" />
+    <Content Include="static\libs\bootstrap\examples\sticky-footer\sticky-footer.css" />
+    <Content Include="static\libs\bootstrap\examples\theme\index.html" />
+    <Content Include="static\libs\bootstrap\examples\theme\theme.css" />
+    <Content Include="static\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\libs\bootstrap\getting-started.html" />
+    <Content Include="static\libs\bootstrap\Gruntfile.js" />
+    <Content Include="static\libs\bootstrap\index.html" />
+    <Content Include="static\libs\bootstrap\javascript.html" />
+    <Content Include="static\libs\bootstrap\js\affix.js" />
+    <Content Include="static\libs\bootstrap\js\alert.js" />
+    <Content Include="static\libs\bootstrap\js\button.js" />
+    <Content Include="static\libs\bootstrap\js\carousel.js" />
+    <Content Include="static\libs\bootstrap\js\collapse.js" />
+    <Content Include="static\libs\bootstrap\js\dropdown.js" />
+    <Content Include="static\libs\bootstrap\js\modal.js" />
+    <Content Include="static\libs\bootstrap\js\popover.js" />
+    <Content Include="static\libs\bootstrap\js\scrollspy.js" />
+    <Content Include="static\libs\bootstrap\js\tab.js" />
+    <Content Include="static\libs\bootstrap\js\tests\index.html" />
+    <Content Include="static\libs\bootstrap\js\tests\phantom.js" />
+    <Content Include="static\libs\bootstrap\js\tests\server.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\affix.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\alert.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\button.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\carousel.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\collapse.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\dropdown.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\modal.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\phantom.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\popover.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\scrollspy.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\tab.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\tooltip.js" />
+    <Content Include="static\libs\bootstrap\js\tests\unit\transition.js" />
+    <Content Include="static\libs\bootstrap\js\tests\vendor\jquery.js" />
+    <Content Include="static\libs\bootstrap\js\tests\vendor\qunit.css" />
+    <Content Include="static\libs\bootstrap\js\tests\vendor\qunit.js" />
+    <Content Include="static\libs\bootstrap\js\tooltip.js" />
+    <Content Include="static\libs\bootstrap\js\transition.js" />
+    <Content Include="static\libs\bootstrap\less\alerts.less" />
+    <Content Include="static\libs\bootstrap\less\badges.less" />
+    <Content Include="static\libs\bootstrap\less\bootstrap.less" />
+    <Content Include="static\libs\bootstrap\less\breadcrumbs.less" />
+    <Content Include="static\libs\bootstrap\less\button-groups.less" />
+    <Content Include="static\libs\bootstrap\less\buttons.less" />
+    <Content Include="static\libs\bootstrap\less\carousel.less" />
+    <Content Include="static\libs\bootstrap\less\close.less" />
+    <Content Include="static\libs\bootstrap\less\code.less" />
+    <Content Include="static\libs\bootstrap\less\component-animations.less" />
+    <Content Include="static\libs\bootstrap\less\dropdowns.less" />
+    <Content Include="static\libs\bootstrap\less\forms.less" />
+    <Content Include="static\libs\bootstrap\less\glyphicons.less" />
+    <Content Include="static\libs\bootstrap\less\grid.less" />
+    <Content Include="static\libs\bootstrap\less\input-groups.less" />
+    <Content Include="static\libs\bootstrap\less\jumbotron.less" />
+    <Content Include="static\libs\bootstrap\less\labels.less" />
+    <Content Include="static\libs\bootstrap\less\list-group.less" />
+    <Content Include="static\libs\bootstrap\less\media.less" />
+    <Content Include="static\libs\bootstrap\less\mixins.less" />
+    <Content Include="static\libs\bootstrap\less\modals.less" />
+    <Content Include="static\libs\bootstrap\less\navbar.less" />
+    <Content Include="static\libs\bootstrap\less\navs.less" />
+    <Content Include="static\libs\bootstrap\less\normalize.less" />
+    <Content Include="static\libs\bootstrap\less\pager.less" />
+    <Content Include="static\libs\bootstrap\less\pagination.less" />
+    <Content Include="static\libs\bootstrap\less\panels.less" />
+    <Content Include="static\libs\bootstrap\less\popovers.less" />
+    <Content Include="static\libs\bootstrap\less\print.less" />
+    <Content Include="static\libs\bootstrap\less\progress-bars.less" />
+    <Content Include="static\libs\bootstrap\less\responsive-utilities.less" />
+    <Content Include="static\libs\bootstrap\less\scaffolding.less" />
+    <Content Include="static\libs\bootstrap\less\tables.less" />
+    <Content Include="static\libs\bootstrap\less\theme.less" />
+    <Content Include="static\libs\bootstrap\less\thumbnails.less" />
+    <Content Include="static\libs\bootstrap\less\tooltip.less" />
+    <Content Include="static\libs\bootstrap\less\type.less" />
+    <Content Include="static\libs\bootstrap\less\utilities.less" />
+    <Content Include="static\libs\bootstrap\less\variables.less" />
+    <Content Include="static\libs\bootstrap\less\wells.less" />
+    <Content Include="static\libs\bootstrap\LICENSE" />
+    <Content Include="static\libs\bootstrap\package.json" />
+    <Content Include="static\libs\bootstrap\README.md" />
+    <Content Include="static\libs\bootstrap\_config.yml" />
+    <Content Include="static\libs\bootstrap\_includes\ads.html" />
+    <Content Include="static\libs\bootstrap\_includes\footer.html" />
+    <Content Include="static\libs\bootstrap\_includes\header.html" />
+    <Content Include="static\libs\bootstrap\_includes\nav-components.html" />
+    <Content Include="static\libs\bootstrap\_includes\nav-css.html" />
+    <Content Include="static\libs\bootstrap\_includes\nav-customize.html" />
+    <Content Include="static\libs\bootstrap\_includes\nav-getting-started.html" />
+    <Content Include="static\libs\bootstrap\_includes\nav-javascript.html" />
+    <Content Include="static\libs\bootstrap\_includes\nav-main.html" />
+    <Content Include="static\libs\bootstrap\_includes\old-bs-docs.html" />
+    <Content Include="static\libs\bootstrap\_includes\social-buttons.html" />
+    <Content Include="static\libs\bootstrap\_layouts\default.html" />
+    <Content Include="static\libs\bootstrap\_layouts\home.html" />
+    <Content Include="static\libs\es5-shim\.bower.json" />
+    <Content Include="static\libs\es5-shim\.gitignore" />
+    <Content Include="static\libs\es5-shim\CHANGES" />
+    <Content Include="static\libs\es5-shim\CONTRIBUTORS.md" />
+    <Content Include="static\libs\es5-shim\es5-sham.js" />
+    <Content Include="static\libs\es5-shim\es5-sham.map" />
+    <Content Include="static\libs\es5-shim\es5-sham.min.js" />
+    <Content Include="static\libs\es5-shim\es5-shim.js" />
+    <Content Include="static\libs\es5-shim\es5-shim.map" />
+    <Content Include="static\libs\es5-shim\es5-shim.min.js" />
+    <Content Include="static\libs\es5-shim\LICENSE" />
+    <Content Include="static\libs\es5-shim\package.json" />
+    <Content Include="static\libs\es5-shim\README.md" />
+    <Content Include="static\libs\es5-shim\tests\helpers\h-kill.js" />
+    <Content Include="static\libs\es5-shim\tests\helpers\h-matchers.js" />
+    <Content Include="static\libs\es5-shim\tests\helpers\h.js" />
+    <Content Include="static\libs\es5-shim\tests\index.html" />
+    <Content Include="static\libs\es5-shim\tests\index.min.html" />
+    <Content Include="static\libs\es5-shim\tests\lib\jasmine-html.js" />
+    <Content Include="static\libs\es5-shim\tests\lib\jasmine.css" />
+    <Content Include="static\libs\es5-shim\tests\lib\jasmine.js" />
+    <Content Include="static\libs\es5-shim\tests\lib\jasmine_favicon.png" />
+    <Content Include="static\libs\es5-shim\tests\lib\json2.js" />
+    <Content Include="static\libs\es5-shim\tests\spec\s-array.js" />
+    <Content Include="static\libs\es5-shim\tests\spec\s-date.js" />
+    <Content Include="static\libs\es5-shim\tests\spec\s-function.js" />
+    <Content Include="static\libs\es5-shim\tests\spec\s-number.js" />
+    <Content Include="static\libs\es5-shim\tests\spec\s-object.js" />
+    <Content Include="static\libs\es5-shim\tests\spec\s-string.js" />
+    <Content Include="static\libs\font-awesome\.bower.json" />
+    <Content Include="static\libs\font-awesome\.gitignore" />
+    <Content Include="static\libs\font-awesome\.ruby-version" />
+    <Content Include="static\libs\font-awesome\composer.json" />
+    <Content Include="static\libs\font-awesome\CONTRIBUTING.md" />
+    <Content Include="static\libs\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="static\libs\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="static\libs\font-awesome\css\font-awesome.css" />
+    <Content Include="static\libs\font-awesome\css\font-awesome.min.css" />
+    <Content Include="static\libs\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="static\libs\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="static\libs\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="static\libs\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="static\libs\font-awesome\font\FontAwesome.otf" />
+    <Content Include="static\libs\font-awesome\Gemfile" />
+    <Content Include="static\libs\font-awesome\Gemfile.lock" />
+    <Content Include="static\libs\font-awesome\less\bootstrap.less" />
+    <Content Include="static\libs\font-awesome\less\core.less" />
+    <Content Include="static\libs\font-awesome\less\extras.less" />
+    <Content Include="static\libs\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="static\libs\font-awesome\less\font-awesome.less" />
+    <Content Include="static\libs\font-awesome\less\icons.less" />
+    <Content Include="static\libs\font-awesome\less\mixins.less" />
+    <Content Include="static\libs\font-awesome\less\path.less" />
+    <Content Include="static\libs\font-awesome\less\variables.less" />
+    <Content Include="static\libs\font-awesome\package.json" />
+    <Content Include="static\libs\font-awesome\README.md" />
+    <Content Include="static\libs\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="static\libs\font-awesome\scss\font-awesome.scss" />
+    <Content Include="static\libs\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="static\libs\font-awesome\scss\_core.scss" />
+    <Content Include="static\libs\font-awesome\scss\_extras.scss" />
+    <Content Include="static\libs\font-awesome\scss\_icons.scss" />
+    <Content Include="static\libs\font-awesome\scss\_mixins.scss" />
+    <Content Include="static\libs\font-awesome\scss\_path.scss" />
+    <Content Include="static\libs\font-awesome\scss\_variables.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\css\prettify.css" />
+    <Content Include="static\libs\font-awesome\src\assets\css\pygments.css" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\font\FontAwesome.otf" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\bootstrap.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\core.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\extras.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\icons.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\mixins.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\path.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\less\variables.less" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_core.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_extras.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_path.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="static\libs\font-awesome\src\assets\ico\favicon.ico" />
+    <Content Include="static\libs\font-awesome\src\assets\img\contribution-sample.png" />
+    <Content Include="static\libs\font-awesome\src\assets\img\fort_awesome.jpg" />
+    <Content Include="static\libs\font-awesome\src\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="static\libs\font-awesome\src\assets\img\glyphicons-halflings.png" />
+    <Content Include="static\libs\font-awesome\src\assets\img\icon-flag.pdf" />
+    <Content Include="static\libs\font-awesome\src\assets\js\backbone.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\bootstrap-2.3.1.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\bootstrap-222.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\prettify.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\site.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\underscore.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\ZeroClipboard-1.1.7.min.js" />
+    <Content Include="static\libs\font-awesome\src\assets\js\ZeroClipboard-1.1.7.swf" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\accordion.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\alerts.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\bootstrap.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\breadcrumbs.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\button-groups.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\buttons.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\carousel.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\close.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\code.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\component-animations.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\dropdowns.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\forms.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\grid.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\hero-unit.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\labels-badges.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\layouts.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\media.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\mixins.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\modals.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\navbar.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\navs.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\pager.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\pagination.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\popovers.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\progress-bars.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\reset.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\responsive-1200px-min.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\responsive-767px-max.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\responsive-768px-979px.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\responsive-navbar.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\responsive-utilities.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\responsive.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\scaffolding.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\sprites.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\tables.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\thumbnails.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\tooltip.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\type.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\utilities.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\variables.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\bootstrap-2.3.2\wells.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\lazy.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\mixins.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\responsive-1200px-min.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\responsive-767px-max.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\responsive-768px-979px.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\responsive-navbar.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\responsive.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\site.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\sticky-footer.less" />
+    <Content Include="static\libs\font-awesome\src\assets\less\variables.less" />
+    <Content Include="static\libs\font-awesome\src\cheatsheet.html" />
+    <Content Include="static\libs\font-awesome\src\CNAME" />
+    <Content Include="static\libs\font-awesome\src\community.html" />
+    <Content Include="static\libs\font-awesome\src\design.html" />
+    <Content Include="static\libs\font-awesome\src\examples.html" />
+    <Content Include="static\libs\font-awesome\src\get-started.html" />
+    <Content Include="static\libs\font-awesome\src\icons.html" />
+    <Content Include="static\libs\font-awesome\src\icons.yml" />
+    <Content Include="static\libs\font-awesome\src\index.html" />
+    <Content Include="static\libs\font-awesome\src\license.html" />
+    <Content Include="static\libs\font-awesome\src\Makefile" />
+    <Content Include="static\libs\font-awesome\src\test.html" />
+    <Content Include="static\libs\font-awesome\src\whats-new.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\ads\carbon-dark-vertical.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\ads\carbon-light-horizontal.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\ads\carbon-light-vertical.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\brand-license.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\cheatsheet.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\community.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\community\getting-support.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\community\project-milestones.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\community\reporting-bugs.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\community\requesting-new-icons.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\community\submitting-pull-requests.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\animated-spinner.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\bordered-pulled.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\bulleted-lists.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\button-dropdowns.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\button-groups.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\buttons.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\custom.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\form-inputs.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\inline-icons.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\larger-icons.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\navigation.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\new.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\rotated-flipped.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\examples\stacked.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\footer.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\get-started.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\brand.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\currency.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\directional.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\medical.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\new.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\text-editor.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\video-player.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\icons\web-application.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\jumbotron-slider.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\jumbotron.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\license-code.less" />
+    <Content Include="static\libs\font-awesome\src\_includes\license.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\navbar.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\stripe-ad.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\stripe-social.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\tell-me-thanks.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\tests\rotated-flipped-inside-anchor.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\tests\rotated-flipped-inside-btn.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\tests\rotated-flipped.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\tests\stacked-inside-anchor.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\tests\stacked.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\thanks-to.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\whats-new.html" />
+    <Content Include="static\libs\font-awesome\src\_includes\why.html" />
+    <Content Include="static\libs\font-awesome\src\_layouts\base.html" />
+    <Content Include="static\libs\font-awesome\src\_layouts\icon.html" />
+    <Content Include="static\libs\font-awesome\src\_plugins\icon_page_generator.rb" />
+    <Content Include="static\libs\font-awesome\src\_plugins\site.rb" />
+    <Content Include="static\libs\font-awesome\_config.yml" />
+    <Content Include="static\libs\jquery\.bower.json" />
+    <Content Include="static\libs\jquery\.gitignore" />
+    <Content Include="static\libs\jquery\bower.json" />
+    <Content Include="static\libs\jquery\component.json" />
+    <Content Include="static\libs\jquery\composer.json" />
+    <Content Include="static\libs\jquery\jquery-migrate.js" />
+    <Content Include="static\libs\jquery\jquery-migrate.min.js" />
+    <Content Include="static\libs\jquery\jquery.js" />
+    <Content Include="static\libs\jquery\jquery.min.js" />
+    <Content Include="static\libs\jquery\jquery.min.map" />
+    <Content Include="static\libs\jquery\package.json" />
+    <Content Include="static\libs\jquery\README.md" />
+    <Content Include="static\libs\json3\.bower.json" />
+    <Content Include="static\libs\json3\.gitmodules" />
+    <Content Include="static\libs\json3\.jshintrc" />
+    <Content Include="static\libs\json3\.npmignore" />
+    <Content Include="static\libs\json3\benchmark\assets\html5.js" />
+    <Content Include="static\libs\json3\benchmark\assets\jsperf.css" />
+    <Content Include="static\libs\json3\benchmark\assets\nano.jar" />
+    <Content Include="static\libs\json3\benchmark\assets\ui.js" />
+    <Content Include="static\libs\json3\benchmark\benchmark_browser.html" />
+    <Content Include="static\libs\json3\benchmark\benchmark_json3.js" />
+    <Content Include="static\libs\json3\build.js" />
+    <Content Include="static\libs\json3\index.html" />
+    <Content Include="static\libs\json3\lib\json3.js" />
+    <Content Include="static\libs\json3\lib\json3.min.js" />
+    <Content Include="static\libs\json3\LICENSE" />
+    <Content Include="static\libs\json3\package.json" />
+    <Content Include="static\libs\json3\page\background.png" />
+    <Content Include="static\libs\json3\page\logo.png" />
+    <Content Include="static\libs\json3\page\page.html" />
+    <Content Include="static\libs\json3\page\style.css" />
+    <Content Include="static\libs\json3\README.md" />
+    <Content Include="static\libs\json3\test\test_browser.html" />
+    <Content Include="static\libs\json3\test\test_extendscript.jsx" />
+    <Content Include="static\libs\json3\test\test_json3.js" />
+    <Content Include="static\libs\json3\vendor\benchmark.js" />
+    <Content Include="static\libs\json3\vendor\closure-compiler.jar" />
+    <Content Include="static\libs\json3\vendor\curl.js" />
+    <Content Include="static\libs\json3\vendor\evalJSON.js" />
+    <Content Include="static\libs\json3\vendor\json2.js" />
+    <Content Include="static\libs\json3\vendor\json_parse.js" />
+    <Content Include="static\libs\json3\vendor\json_parse_state.js" />
+    <Content Include="static\libs\json3\vendor\json_sans_eval.js" />
+    <Content Include="static\libs\json3\vendor\lodash.js" />
+    <Content Include="static\libs\json3\vendor\platform.js" />
+    <Content Include="static\libs\json3\vendor\prototype.js" />
+    <Content Include="static\libs\json3\vendor\require.js" />
+    <Content Include="static\libs\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="static\partials\maintop.html" />
+    <Content Include="static\partials\authenticatedpage.html" />
+    <Content Include="static\partials\customers.html" />
+    <Content Include="static\partials\authenticate.html" />
+    <Content Include="static\robots.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zumo.Sharp.AspNet\Zumo.Sharp.AspNet.csproj">
+      <Project>{7b520c80-8d8b-4c4f-b823-774e46b6ac32}</Project>
+      <Name>Zumo.Sharp.AspNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zumo.Sharp\Zumo.Sharp.Authentication.csproj">
+      <Project>{861552be-7d80-41b5-88e1-5b465f154baa}</Project>
+      <Name>Zumo.Sharp.Authentication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="static\.htaccess" />
+    <Content Include="static\libs\angular-animate\README.md" />
+    <Content Include="static\libs\angular-easyfb\CHANGELOG.md" />
+    <Content Include="static\libs\angular-route\README.md" />
+    <Content Include="static\libs\angular-touch\README.md" />
+    <Content Include="static\libs\angular-ui-router\CHANGELOG.md" />
+    <Content Include="static\libs\angular-ui-router\site\font\fontawesome-webfont.eot" />
+    <Content Include="static\libs\angular-ui-router\site\font\fontawesome-webfont.ttf" />
+    <Content Include="static\libs\angular-ui-router\site\font\fontawesome-webfont.woff" />
+    <Content Include="static\libs\angular-ui-router\site\font\FontAwesome.otf" />
+    <Content Include="static\libs\angular\angular.min.js.gzip" />
+    <Content Include="static\libs\angular\README.md" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50588</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8789/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

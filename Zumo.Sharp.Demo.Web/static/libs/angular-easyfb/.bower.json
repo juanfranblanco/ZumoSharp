@@ -1,0 +1,28 @@
+{
+  "name": "angular-easyfb",
+  "version": "0.2.3",
+  "description": "Super easy AngularJS + Facebook JavaScript SDK.",
+  "main": "angular-easyfb.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Gruntfile.js",
+    "package.json",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "homepage": "https://github.com/pc035860/angular-easyfb",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.3",
+    "commit": "3d7556b6d938b5a26a893cee3ef24955d1348def"
+  },
+  "_source": "git://github.com/pc035860/angular-easyfb.git",
+  "_target": "~0.2.3",
+  "_originalSource": "angular-easyfb",
+  "_direct": true
+}

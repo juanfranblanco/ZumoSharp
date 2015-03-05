@@ -1,0 +1,11 @@
+<div ng-show="!$userService.isLogged" ng-include src="'static/partials/authenticate.html'"></div>
+<div ng-show="$userService.isLogged == true">
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-md-9 col-md-push-3">
+				<div ui-view></div> <!-- here is the content .. ie customers-->
+			</div>
+			<div class="col-md-3 col-md-pull-9"><h3>Welcome {{userService.username}}<img title="Me" ng-src="https://graph.facebook.com/{{userService.facebookId}}/picture?type=large" class="img-thumbnail" /></h3></div>
+		</div>
+	</div>
+</div> 
