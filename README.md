@@ -51,7 +51,7 @@ We have 2 mobile services clients (for demo purposes) one pointing to Azure and 
 angular.module("ZumoDemo").factory("mobileServiceClient", [function () {
     var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new WindowsAzure.MobileServiceClient(
-    "https://musicaplaylist.azure-mobile.net/",
+    "https://yourazuremobileservice.azure-mobile.net/",
     "YourWAMSAPIKEY"
 );
     return client;
