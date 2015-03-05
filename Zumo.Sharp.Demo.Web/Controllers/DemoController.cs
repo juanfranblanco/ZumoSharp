@@ -16,7 +16,7 @@ namespace ZumoSharp.Demo.Web.Controllers
             {
                 dynamic item = new ExpandoObject();
                 item.CustomerId = i;
-				item.Name = "Mobile Services " + i;
+				item.Name = "Web api " + i;
                 data.Add(item);
             }
             return data.ToArray();
